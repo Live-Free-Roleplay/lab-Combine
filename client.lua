@@ -1,11 +1,11 @@
 RegisterNetEvent('lab-Combine:Combine')
-AddEventHandler('lab-Combine:Combine', function()
-    lib.progressCircle({
+AddEventHandler('lab-Combine:Combine', function(payload)
+    if lib.progressBar({
         duration = 2000,
         label = 'Combining..',
         position = 'middle',
         useWhileDead = false,
-        canCancel = false,
+        canCancel = true,
         disable = {
             car = true,
         },
@@ -13,5 +13,5 @@ AddEventHandler('lab-Combine:Combine', function()
             dict = 'amb@prop_human_parking_meter@male@base',
             clip = 'base'
         },
-    })
+    }) then TriggerServerEvent('lab-Combine:CombineDone', payload) end
 end)
