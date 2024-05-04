@@ -49,8 +49,8 @@ local combhook = ox_inventory:registerHook('swapItems', function(payload)
     if payload.fromInventory == payload.source and payload.fromSlot ~= nil and payload.toSlot ~= nil and Combinations[payload.fromSlot.name] ~= nil and payload.toSlot.name == Combinations[payload.fromSlot.name].needs then
         TriggerClientEvent('ox_inventory:closeInventory', payload.source)
         TriggerClientEvent('lab-Combine:Combine', payload.source, payload)
+        return false
     end
-    return false
 end,{})
 
 RegisterNetEvent('lab-Combine:CombineDone', function(payload)
