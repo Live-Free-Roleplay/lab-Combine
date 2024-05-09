@@ -43,6 +43,14 @@ local Combinations = {
         removeItemA = true, -- Remove the dragged item?
         removeItemB = true, -- Remove the item you dragged onto?
     },
+    ['tobacco'] = {
+        needs = 'rolling_paper', 
+        result = {
+            [1] = {name = 'cigarette', amount = 1},
+        },
+        removeItemA = true, -- Remove the dragged item?
+        removeItemB = true, -- Remove the item you dragged onto?
+    },
 }
 
 local combhook = ox_inventory:registerHook('swapItems', function(payload)
